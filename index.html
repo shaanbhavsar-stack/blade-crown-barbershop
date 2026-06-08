@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blade & Crown Barbershop — Wicker Park, Chicago</title>
+<meta name="description" content="Blade & Crown Barbershop in Wicker Park, Chicago — precision fades, hot towel shaves, and beard sculpting since 2014. Book your cut today." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          charcoal: { DEFAULT: '#121212', light: '#1b1b1b', deep: '#0a0a0a' },
+          gold: { DEFAULT: '#c9a35d', light: '#e0c186', dark: '#a3823f' }
+        },
+        fontFamily: {
+          display: ['"Bebas Neue"', 'sans-serif'],
+          serif: ['"Cormorant Garamond"', 'serif'],
+          sans: ['Inter', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #121212; }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+  .stagger > * { transition-delay: var(--d, 0ms); }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #c9a35d; border-radius: 6px; }
+  .gold-underline::after {
+    content: ''; display: block; width: 64px; height: 2px; margin-top: 14px;
+    background: linear-gradient(90deg, #c9a35d, transparent);
+  }
+  .gold-underline.center::after { margin-left: auto; margin-right: auto; }
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; bottom: -4px; width: 0%; height: 1px;
+    background: #c9a35d; transition: width 0.3s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+  .card-hover { transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
+  .card-hover:hover { transform: translateY(-6px); border-color: #c9a35d; box-shadow: 0 20px 40px -16px rgba(201,163,93,0.25); }
+  .star { color: #c9a35d; }
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.75) 55%, rgba(18,18,18,1) 100%);
+  }
+  input::placeholder, textarea::placeholder { color: #8a8a8a; }
+</style>
+</head>
+<body class="bg-charcoal text-white font-sans antialiased">
+
+  <!-- NAV -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-500 bg-charcoal-deep/0">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="#hero" class="font-display tracking-widest text-2xl text-white">
+        BLADE <span class="text-gold">&amp;</span> CROWN
+      </a>
+      <nav class="hidden md:flex items-center gap-9 text-sm uppercase tracking-widest text-gray-300">
+        <a href="#about" class="nav-link hover:text-gold transition-colors">About</a>
+        <a href="#services" class="nav-link hover:text-gold transition-colors">Services</a>
+        <a href="#barbers" class="nav-link hover:text-gold transition-colors">Barbers</a>
+        <a href="#gallery" class="nav-link hover:text-gold transition-colors">Gallery</a>
+        <a href="#testimonials" class="nav-link hover:text-gold transition-colors">Reviews</a>
+        <a href="#contact" class="nav-link hover:text-gold transition-colors">Contact</a>
+      </nav>
+      <a href="#booking" class="hidden md:inline-block border border-gold text-gold text-sm uppercase tracking-widest px-6 py-2.5 hover:bg-gold hover:text-charcoal-deep transition-colors duration-300">
+        Book Your Cut
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Open menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-charcoal-deep border-t border-white/10">
+      <div class="flex flex-col px-6 py-4 gap-4 text-sm uppercase tracking-widest text-gray-300">
+        <a href="#about" class="mobile-link hover:text-gold">About</a>
+        <a href="#services" class="mobile-link hover:text-gold">Services</a>
+        <a href="#barbers" class="mobile-link hover:text-gold">Barbers</a>
+        <a href="#gallery" class="mobile-link hover:text-gold">Gallery</a>
+        <a href="#testimonials" class="mobile-link hover:text-gold">Reviews</a>
+        <a href="#contact" class="mobile-link hover:text-gold">Contact</a>
+        <a href="#booking" class="mobile-link text-gold border border-gold text-center px-6 py-2.5 mt-2">Book Your Cut</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="relative h-screen min-h-[640px] w-full flex items-center justify-center overflow-hidden">
+    <img id="hero-img" src="" alt="Inside Blade & Crown Barbershop" class="absolute inset-0 w-full h-full object-cover scale-105" />
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <p class="reveal is-visible uppercase tracking-[0.4em] text-gold text-xs sm:text-sm mb-5">Wicker Park, Chicago · Est. 2014</p>
+      <h1 class="reveal is-visible font-display text-5xl sm:text-7xl lg:text-8xl tracking-wide leading-[0.95]">
+        BLADE <span class="text-gold">&amp;</span> CROWN<br/>BARBERSHOP
+      </h1>
+      <p id="hero-tagline" class="reveal is-visible mt-6 font-serif italic text-xl sm:text-2xl text-gray-200 max-w-2xl mx-auto"></p>
+      <p id="hero-subtext" class="reveal is-visible mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto"></p>
+      <div class="reveal is-visible mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#booking" class="bg-gold text-charcoal-deep font-semibold uppercase tracking-widest text-sm px-9 py-4 hover:bg-gold-light transition-colors duration-300">Book Your Cut</a>
+        <a href="#services" class="border border-white/40 text-white uppercase tracking-widest text-sm px-9 py-4 hover:border-gold hover:text-gold transition-colors duration-300">View Services</a>
+      </div>
+    </div>
+    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 hover:text-gold transition-colors animate-bounce">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal-left">
+        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Our Story</p>
+        <h2 id="about-heading" class="font-display text-4xl sm:text-5xl tracking-wide gold-underline"></h2>
+        <p id="about-story" class="mt-8 text-gray-300 leading-relaxed font-serif text-lg"></p>
+        <p id="about-philosophy" class="mt-6 text-gray-400 leading-relaxed"></p>
+        <div class="mt-10 flex items-center gap-6">
+          <div class="text-center">
+            <p id="about-founded" class="font-display text-4xl text-gold"></p>
+            <p class="text-xs uppercase tracking-widest text-gray-500 mt-1">Founded</p>
+          </div>
+          <div class="w-px h-12 bg-white/15"></div>
+          <div class="text-center">
+            <p class="font-display text-4xl text-gold">5</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500 mt-1">Master Chairs</p>
+          </div>
+          <div class="w-px h-12 bg-white/15"></div>
+          <div class="text-center">
+            <p class="font-display text-4xl text-gold">12k+</p>
+            <p class="text-xs uppercase tracking-widest text-gray-500 mt-1">Cuts Given</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right relative">
+        <img id="about-img" src="" alt="Barber at work inside Blade & Crown" class="w-full h-[520px] object-cover" />
+        <div class="absolute -bottom-6 -left-6 bg-gold text-charcoal-deep px-8 py-5 hidden sm:block">
+          <p class="font-display text-2xl tracking-widest">SINCE 2014</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal-deep border-y border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Services &amp; Pricing</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center"></h2>
+        <p class="mt-6 text-gray-400">Every service includes a consultation, hot towel finish, and styling — because the details are the difference.</p>
+      </div>
+      <div id="services-grid" class="mt-16 grid md:grid-cols-3 gap-8"></div>
+    </div>
+  </section>
+
+  <!-- BARBERS -->
+  <section id="barbers" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">The Team</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">MEET THE BARBERS</h2>
+        <p class="mt-6 text-gray-400">Four chairs, four specialties, one standard of craft.</p>
+      </div>
+      <div id="barbers-grid" class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal-deep border-y border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Inside The Shop</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">GALLERY</h2>
+      </div>
+      <div id="gallery-grid" class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Word On The Street</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">TESTIMONIALS</h2>
+      </div>
+      <div id="testimonials-grid" class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal-deep border-y border-white/5">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Reserve Your Chair</p>
+      <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">BOOK YOUR CUT</h2>
+      <p class="mt-6 text-gray-400">Fill out the form below and our front desk will confirm your appointment within one business day.</p>
+    </div>
+    <form id="booking-form" class="reveal mt-14 max-w-2xl mx-auto grid sm:grid-cols-2 gap-6">
+      <div class="sm:col-span-1">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
+        <input required name="name" type="text" placeholder="John Smith" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Email Address</label>
+        <input required name="email" type="email" placeholder="john@email.com" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Service</label>
+        <select required name="service" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors">
+          <option value="">Select a service…</option>
+        </select>
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Preferred Barber</label>
+        <select required name="barber" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors">
+          <option value="">No preference</option>
+        </select>
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Date</label>
+        <input required name="date" type="date" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
+      </div>
+      <div class="sm:col-span-1">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Time</label>
+        <input required name="time" type="time" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
+      </div>
+      <div class="sm:col-span-2">
+        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Notes (optional)</label>
+        <textarea name="notes" rows="3" placeholder="Anything we should know before your visit?" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors"></textarea>
+      </div>
+      <div class="sm:col-span-2 text-center mt-2">
+        <button type="submit" class="bg-gold text-charcoal-deep font-semibold uppercase tracking-widest text-sm px-12 py-4 hover:bg-gold-light transition-colors duration-300">Request Appointment</button>
+        <p id="booking-confirmation" class="hidden mt-5 text-gold font-serif italic text-lg"></p>
+      </div>
+    </form>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+      <div class="reveal-left">
+        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Visit Us</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline">CONTACT &amp; HOURS</h2>
+        <div class="mt-10 space-y-7 text-gray-300">
+          <div class="flex gap-4">
+            <svg class="text-gold shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            <div>
+              <p id="contact-address" class="font-medium text-white"></p>
+              <p id="contact-neighborhood" class="text-sm text-gray-500 mt-0.5"></p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <svg class="text-gold shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a1.5 1.5 0 001.5-1.5v-3.097a1.125 1.125 0 00-.91-1.105l-4.498-.9a1.125 1.125 0 00-1.205.59l-.91 1.821a14.978 14.978 0 01-6.105-6.105l1.821-.91a1.125 1.125 0 00.59-1.206l-.9-4.497a1.125 1.125 0 00-1.105-.91H3.75a1.5 1.5 0 00-1.5 1.5v1.5z"/></svg>
+            <p id="contact-phone" class="font-medium text-white"></p>
+          </div>
+          <div class="flex gap-4">
+            <svg class="text-gold shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            <p id="contact-email" class="font-medium text-white"></p>
+          </div>
+          <div class="flex gap-4">
+            <svg class="text-gold shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div id="contact-hours" class="space-y-1 text-sm"></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="w-full h-[420px] lg:h-full min-h-[360px] bg-charcoal-light border border-white/10 flex flex-col items-center justify-center text-gray-500 gap-3 relative overflow-hidden">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a35d" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <p class="text-sm tracking-wide">Google Maps — 1742 N. Damen Avenue, Chicago, IL</p>
+          <p class="text-xs text-gray-600">[ Map embed placeholder ]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal-deep border-t border-white/5 py-12 px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="#hero" class="font-display tracking-widest text-xl text-white">BLADE <span class="text-gold">&amp;</span> CROWN</a>
+      <p class="text-xs text-gray-500 text-center">© 2026 Blade &amp; Crown Barbershop · 1742 N. Damen Avenue, Chicago, IL · All rights reserved</p>
+      <div class="flex items-center gap-5 text-gray-400">
+        <a href="#" class="hover:text-gold transition-colors" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" class="hover:text-gold transition-colors" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 9h3V6h-3a4 4 0 00-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 011-1z"/></svg></a>
+        <a href="/admin.html" class="text-[10px] uppercase tracking-widest text-gray-700 hover:text-gray-500 transition-colors ml-2">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

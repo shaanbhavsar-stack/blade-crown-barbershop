@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — Blade & Crown Barbershop</title>
+<meta name="robots" content="noindex" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { charcoal: { DEFAULT: '#121212', light: '#1b1b1b', deep: '#0a0a0a' }, gold: { DEFAULT: '#c9a35d', light: '#e0c186', dark: '#a3823f' } },
+      fontFamily: { display: ['"Bebas Neue"', 'sans-serif'], sans: ['Inter', 'sans-serif'] }
+    } }
+  }
+</script>
+<style>
+  body { background-color: #121212; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #c9a35d; border-radius: 6px; }
+  input::placeholder, textarea::placeholder { color: #6b6b6b; }
+  .field-label { @apply block text-xs uppercase tracking-widest text-gray-400 mb-1.5; }
+</style>
+</head>
+<body class="bg-charcoal text-white font-sans antialiased min-h-screen">
+
+  <!-- LOGIN -->
+  <div id="login-screen" class="min-h-screen flex items-center justify-center px-6">
+    <form id="login-form" class="w-full max-w-sm bg-charcoal-deep border border-white/10 p-10">
+      <p class="font-display tracking-widest text-3xl text-center">BLADE <span class="text-gold">&amp;</span> CROWN</p>
+      <p class="text-center text-xs uppercase tracking-[0.3em] text-gray-500 mt-2 mb-8">Admin Access</p>
+      <label class="field-label">Password</label>
+      <input id="password-input" type="password" placeholder="Enter admin password" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
+      <p id="login-error" class="hidden text-red-400 text-sm mt-3">Incorrect password. Try again.</p>
+      <button type="submit" class="mt-6 w-full bg-gold text-charcoal-deep font-semibold uppercase tracking-widest text-sm px-6 py-3.5 hover:bg-gold-light transition-colors">Log In</button>
+      <a href="/" class="block text-center text-xs text-gray-500 hover:text-gold mt-6 transition-colors">← Back to site</a>
+    </form>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden">
+    <header class="sticky top-0 z-20 bg-charcoal-deep border-b border-white/10">
+      <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div>
+          <p class="font-display tracking-widest text-2xl">BLADE <span class="text-gold">&amp;</span> CROWN</p>
+          <p class="text-xs uppercase tracking-[0.3em] text-gray-500">Content Dashboard</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="save-indicator" class="hidden text-xs uppercase tracking-widest text-gold">Saved ✓</span>
+          <button id="reset-btn" class="text-xs uppercase tracking-widest border border-white/20 text-gray-300 px-5 py-2.5 hover:border-red-400 hover:text-red-400 transition-colors">Reset to Defaults</button>
+          <a href="/" target="_blank" class="text-xs uppercase tracking-widest border border-white/20 text-gray-300 px-5 py-2.5 hover:border-gold hover:text-gold transition-colors">View Site</a>
+          <button id="logout-btn" class="text-xs uppercase tracking-widest bg-gold text-charcoal-deep px-5 py-2.5 hover:bg-gold-light transition-colors">Log Out</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-8">
+
+      <!-- HERO -->
+      <section class="bg-charcoal-deep border border-white/10 p-8">
+        <h2 class="font-display text-2xl tracking-widest text-gold mb-6">HERO SECTION</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="sm:col-span-2">
+            <label class="field-label">Tagline</label>
+            <input data-path="hero.tagline" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="field-label">Subtext</label>
+            <textarea data-path="hero.subtext" rows="2" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="field-label">Background Image URL</label>
+            <input data-path="hero.image" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="bg-charcoal-deep border border-white/10 p-8">
+        <h2 class="font-display text-2xl tracking-widest text-gold mb-6">ABOUT SECTION</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="field-label">Heading</label>
+            <input data-path="about.heading" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+          <div>
+            <label class="field-label">Founded Year</label>
+            <input data-path="about.founded" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+          <div class="sm:col-span-2">
+            <label class="field-label">Story</label>
+            <textarea data-path="about.story" rows="4" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="field-label">Philosophy</label>
+            <textarea data-path="about.philosophy" rows="3" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3"></textarea>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="field-label">Image URL</label>
+            <input data-path="about.image" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="bg-charcoal-deep border border-white/10 p-8">
+        <h2 class="font-display text-2xl tracking-widest text-gold mb-6">SERVICES &amp; PRICING</h2>
+        <div id="services-editor" class="space-y-8"></div>
+      </section>
+
+      <!-- BARBERS -->
+      <section class="bg-charcoal-deep border border-white/10 p-8">
+        <h2 class="font-display text-2xl tracking-widest text-gold mb-6">BARBERS</h2>
+        <div id="barbers-editor" class="space-y-8"></div>
+      </section>
+
+      <!-- HOURS -->
+      <section class="bg-charcoal-deep border border-white/10 p-8">
+        <h2 class="font-display text-2xl tracking-widest text-gold mb-6">CONTACT &amp; HOURS</h2>
+        <div class="grid sm:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="field-label">Address</label>
+            <input data-path="contact.address" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+          <div>
+            <label class="field-label">Neighborhood</label>
+            <input data-path="contact.neighborhood" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+          <div>
+            <label class="field-label">Phone</label>
+            <input data-path="contact.phone" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+          <div>
+            <label class="field-label">Email</label>
+            <input data-path="contact.email" type="text" class="admin-input w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3" />
+          </div>
+        </div>
+        <div id="hours-editor" class="space-y-3"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
