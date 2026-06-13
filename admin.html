@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Admin — Blade & Crown Barbershop</title>
+<title>Admin — Xolarc Barber Co.</title>
 <meta name="robots" content="noindex" />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: { extend: {
-      colors: { charcoal: { DEFAULT: '#121212', light: '#1b1b1b', deep: '#0a0a0a' }, gold: { DEFAULT: '#c9a35d', light: '#e0c186', dark: '#a3823f' } },
+      colors: { charcoal: { DEFAULT: '#0d0d10', light: '#1a1a1f', deep: '#070708' }, gold: { DEFAULT: '#ff2e7e', light: '#ff6fa8', dark: '#c91361' } },
       fontFamily: { display: ['"Bebas Neue"', 'sans-serif'], sans: ['Inter', 'sans-serif'] }
     } }
   }
 </script>
 <style>
-  body { background-color: #121212; }
+  body { background-color: #0d0d10; }
   ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-track { background: #0a0a0a; }
-  ::-webkit-scrollbar-thumb { background: #c9a35d; border-radius: 6px; }
+  ::-webkit-scrollbar-track { background: #070708; }
+  ::-webkit-scrollbar-thumb { background: #ff2e7e; border-radius: 6px; }
   input::placeholder, textarea::placeholder { color: #6b6b6b; }
   .field-label { @apply block text-xs uppercase tracking-widest text-gray-400 mb-1.5; }
 </style>
@@ -29,7 +29,7 @@
   <!-- LOGIN -->
   <div id="login-screen" class="min-h-screen flex items-center justify-center px-6">
     <form id="login-form" class="w-full max-w-sm bg-charcoal-deep border border-white/10 p-10">
-      <p class="font-display tracking-widest text-3xl text-center">BLADE <span class="text-gold">&amp;</span> CROWN</p>
+      <p class="font-display tracking-widest text-3xl text-center">XOLARC <span class="text-gold">BARBER CO.</span></p>
       <p class="text-center text-xs uppercase tracking-[0.3em] text-gray-500 mt-2 mb-8">Admin Access</p>
       <label class="field-label">Password</label>
       <input id="password-input" type="password" placeholder="Enter admin password" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
@@ -44,7 +44,7 @@
     <header class="sticky top-0 z-20 bg-charcoal-deep border-b border-white/10">
       <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <div>
-          <p class="font-display tracking-widest text-2xl">BLADE <span class="text-gold">&amp;</span> CROWN</p>
+          <p class="font-display tracking-widest text-2xl">XOLARC <span class="text-gold">BARBER CO.</span></p>
           <p class="text-xs uppercase tracking-[0.3em] text-gray-500">Content Dashboard</p>
         </div>
         <div class="flex items-center gap-3">

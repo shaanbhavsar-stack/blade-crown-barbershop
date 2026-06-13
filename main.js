@@ -63,7 +63,7 @@
     const fig = document.createElement('div');
     fig.className = `reveal overflow-hidden group ${i === 0 ? 'col-span-2 row-span-2' : ''}`;
     fig.style.setProperty('--d', `${(i % 4) * 90}ms`);
-    fig.innerHTML = `<img src="${url}" alt="Blade & Crown gallery photo" class="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110" />`;
+    fig.innerHTML = `<img src="${url}" alt="Xolarc Barber Co. gallery photo" class="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110" />`;
     galleryGrid.appendChild(fig);
   });
 
@@ -111,7 +111,7 @@
 
   // ---------- CONTACT ----------
   document.getElementById('contact-address').textContent = content.contact.address;
-  document.getElementById('contact-neighborhood').textContent = `${content.contact.neighborhood} · Chicago`;
+  document.getElementById('contact-neighborhood').textContent = `${content.contact.neighborhood} · Dallas, TX`;
   document.getElementById('contact-phone').textContent = content.contact.phone;
   document.getElementById('contact-email').textContent = content.contact.email;
   const hoursEl = document.getElementById('contact-hours');

@@ -1,105 +1,88 @@
-// Shared content store for Blade & Crown Barbershop
+// Shared content store for Xolarc Barber Co.
 // Defaults live here; admin edits are layered on top via localStorage.
 
-const STORAGE_KEY = 'bladeCrownContent';
+const STORAGE_KEY = 'xolarcBarberContent';
 
 const defaultContent = {
   hero: {
-    tagline: 'Sharp Looks. Sharper Standards.',
-    subtext: 'Est. 2014 — Wicker Park\'s home for precision fades, hot towel shaves, and old-school craft with a modern edge.',
-    image: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2069&auto=format&fit=crop'
+    tagline: 'Cuts That Hit Different.',
+    subtext: 'Addison, TX — Premium fades, modern cuts, and confidence-building transformations from Carlo Reyna. 6000+ cuts and counting.',
+    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop'
   },
   about: {
-    founded: '2014',
-    heading: 'A Decade of Craft on Damen Avenue',
-    story: "Blade & Crown opened its doors in 2014 in a converted print shop on Damen Avenue, founded by master barber Eli Marchetti after a decade cutting hair in Chicago's old-guard shops. He wanted a space that respected the rituals of traditional barbering — straight razors, hot towels, real conversation — without feeling stuck in the past. What started as a three-chair shop with a single barber and a record player has grown into a neighborhood institution with five chairs, a loyal clientele, and a waitlist for Saturday appointments.",
-    philosophy: "We believe a haircut is a small ceremony. You sit down stressed and you stand up sharper — not just in how you look, but in how you carry yourself. Every service starts with a conversation about your hair, your face shape, and your week ahead, because the best cut is the one that fits your actual life, not a photo on a wall.",
+    founded: '2019',
+    heading: 'Meet Your Barber, Carlo Reyna',
+    story: "Xolarc Barber Co. is built around one mission: helping men walk out feeling like the best version of themselves. Founded by Carlo Reyna — known online simply as @xolarc — the shop has grown from a single chair into a go-to destination in Addison, with over 55K people following the journey online and more than 6,000 cuts delivered over 5+ years behind the chair. Every appointment is part craft, part conversation, and part confidence reset.",
+    philosophy: "I help men get their confidence back — one cut at a time. Whether it's a clean taper, a textured fringe, or a flawless skin fade transition, every cut is dialed in to your hair type, face shape, and personal style. No rushed chairs, no cookie-cutter cuts — just precision work and good energy.",
     image: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=2070&auto=format&fit=crop'
   },
   services: [
     {
       category: 'Haircuts',
       items: [
-        { name: 'Signature Cut', price: '$48', desc: 'Consultation, precision cut, and style finish tailored to your face shape.' },
-        { name: 'Skin Fade', price: '$52', desc: 'Seamless blend from skin to length, finished with a straight-razor edge-up.' },
-        { name: 'Buzz Cut', price: '$30', desc: 'Clean, even, all-over clipper cut — quick, sharp, and low maintenance.' },
-        { name: 'Kids Cut (12 & under)', price: '$28', desc: 'Patient, friendly cuts for the next generation of regulars.' }
+        { name: 'Signature Taper', price: '$45', desc: 'Custom-blended taper dialed in to your hair texture and face shape.' },
+        { name: 'Skin Fade', price: '$50', desc: 'Razor-sharp, seamless skin fade with a flawless transition into your length.' },
+        { name: 'Textured Crop / Mullet', price: '$50', desc: 'Modern texture work — choppy fringe, curly crops, and mullet shapes.' },
+        { name: 'Buzz Cut', price: '$30', desc: 'Clean, even, all-over clipper cut. Quick, sharp, low maintenance.' },
+        { name: 'Kids Cut (12 & under)', price: '$30', desc: 'Patient, dialed-in cuts for the next generation of regulars.' }
       ]
     },
     {
-      category: 'Beard & Shave',
+      category: 'Add-Ons & Touch-Ups',
       items: [
-        { name: 'Beard Sculpt & Line-Up', price: '$32', desc: 'Shape, trim, and define with hot towel prep and beard oil finish.' },
-        { name: 'Classic Hot Towel Shave', price: '$45', desc: 'Straight-razor shave with hot towels, pre-shave oil, and cooling balm.' },
-        { name: 'Beard Maintenance Trim', price: '$22', desc: 'Quick clean-up to keep your beard sharp between full sculpts.' }
+        { name: 'Beard Trim & Line-Up', price: '$15', desc: 'Sharp lineup and beard shaping to finish off your look.' },
+        { name: 'Hot Towel Refresh', price: '$10', desc: 'Steamed towel treatment for a relaxing finish to any cut.' },
+        { name: 'Eyebrow Cleanup', price: '$10', desc: 'Quick brow trim and shape for a polished, put-together look.' }
       ]
     },
     {
-      category: 'Packages',
+      category: 'Signature Packages',
       items: [
-        { name: 'The Full Crown', price: '$85', desc: 'Signature cut + hot towel shave + beard sculpt. Our most popular package.' },
-        { name: 'The Gentleman', price: '$68', desc: 'Skin fade + beard line-up + scalp massage finish.' },
-        { name: 'The Refresh', price: '$110', desc: 'Cut, shave, beard sculpt, and 30-minute scalp & shoulder treatment.' }
+        { name: 'The Full Confidence', price: '$70', desc: 'Signature taper or fade + beard line-up + hot towel refresh.' },
+        { name: 'The 360 Transformation', price: '$95', desc: 'Full cut, color/texture consult, beard work, and styling — the works.' },
+        { name: 'First Visit Special', price: '$40', desc: 'New clients: any signature cut, dialed in and documented for next time.' }
       ]
     }
   ],
   barbers: [
     {
-      name: 'Eli Marchetti',
-      specialty: 'Founder · Classic Cuts & Straight-Razor Shaves',
-      years: '17 years experience',
-      bio: 'Eli trained in old-school Chicago shops before opening Blade & Crown. He\'s known for unhurried hot towel shaves and a memory for every regular\'s usual order.',
-      image: 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1974&auto=format&fit=crop'
-    },
-    {
-      name: 'Marcus Webb',
-      specialty: 'Master of Skin Fades & Modern Textures',
-      years: '11 years experience',
-      bio: 'Marcus cut his teeth in Atlanta before landing in Chicago. His fades are razor-sharp and his texture work keeps the shop\'s younger clientele coming back weekly.',
-      image: 'https://images.unsplash.com/photo-1583864697784-a0efc8379f70?q=80&w=1974&auto=format&fit=crop'
-    },
-    {
-      name: 'Diego Ruiz',
-      specialty: 'Beard Sculpting & Grey Blending',
-      years: '9 years experience',
-      bio: 'Diego specializes in beard architecture — shaping facial hair to balance and sharpen any face shape — plus subtle grey-blending color work.',
-      image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1974&auto=format&fit=crop'
-    },
-    {
-      name: 'Theo Banks',
-      specialty: 'Precision Tapers & Kids Cuts',
-      years: '6 years experience',
-      bio: 'Theo is the shop\'s rising star — fast, exacting, and endlessly patient, which makes him the go-to chair for first-time visitors and the youngest clients alike.',
-      image: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1974&auto=format&fit=crop'
+      name: 'Carlo Reyna',
+      specialty: 'Founder · Fades, Tapers & Modern Texture',
+      years: '5+ years experience · 6,000+ cuts',
+      bio: 'Known online as @xolarc to 55K+ followers, Carlo specializes in flawless fade transitions, textured crops, and high-energy transformations. His mission: help every client walk out with their confidence restored.',
+      image: 'https://images.unsplash.com/photo-1622296089780-290d715192af?q=80&w=1974&auto=format&fit=crop'
     }
   ],
   gallery: [
-    'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1974&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1974&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2069&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1974&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1599387431119-f60be7f9d3e8?q=80&w=1974&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1622296089780-290d715192af?q=80&w=1974&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1974&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=1974&auto=format&fit=crop'
+    'https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=1974&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1583864697784-a0efc8379f70?q=80&w=1974&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1974&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1974&auto=format&fit=crop'
   ],
   testimonials: [
-    { name: 'James O.', rating: 5, text: "I've been chasing a good barber since I moved to Chicago and Blade & Crown ended the search. Marcus's fade is the cleanest I've ever had — three weeks later and it's still holding its shape." },
-    { name: 'Andre P.', rating: 5, text: "The hot towel shave with Eli is basically therapy. I walked in after the worst week of my year and walked out feeling like a new person. Worth every penny of The Full Crown package." },
-    { name: 'Sam R.', rating: 5, text: "Brought my 7-year-old in for his first 'big boy' haircut and Theo was unbelievably patient with him. Now my son asks when he gets to go back to 'his' barbershop." },
-    { name: 'Marcus T.', rating: 4, text: "Great atmosphere, great music, even better cuts. Only reason it's not five stars is that Saturday slots book up two weeks out — which honestly just tells you how good they are." },
-    { name: 'David K.', rating: 5, text: "Diego sculpted my beard into something I didn't know was possible with my face shape. Got four compliments before lunch. This is a proper barbershop, not a chain." }
+    { name: 'Jordan M.', rating: 5, text: "Carlo is the only barber I trust with my hair. The skin fade transition is unreal — clean every single time, and the vibe in the shop is always good energy." },
+    { name: 'Diego A.', rating: 5, text: "Followed @xolarc on Instagram for months before booking and it did not disappoint. Walked out feeling like a completely different (better) person." },
+    { name: 'Tyler R.', rating: 5, text: "Best textured crop I've ever had. Carlo actually listens to what you want instead of just doing his go-to cut. Worth the drive to Addison." },
+    { name: 'Marcus B.', rating: 4, text: "Great cut, great conversation, fair prices. Only downside is it books up fast — but that's because he's that good." },
+    { name: 'Sam K.', rating: 5, text: "Brought my son in for his first real haircut and Carlo made it such an easy, fun experience. We're regulars now." }
   ],
   contact: {
-    address: '1742 N. Damen Avenue, Chicago, IL 60622',
-    neighborhood: 'Wicker Park',
-    phone: '(773) 555-0148',
-    email: 'bookings@bladeandcrown.com',
+    address: '4951 Airport Pkwy, 6th Floor Suite 600, Addison, TX 75001',
+    neighborhood: 'Addison',
+    phone: '(469) 555-0192',
+    email: 'book@xolarcbarber.com',
     hours: [
+      { day: 'Sunday', time: 'Closed' },
       { day: 'Monday', time: 'Closed' },
-      { day: 'Tuesday – Friday', time: '10:00 AM – 8:00 PM' },
-      { day: 'Saturday', time: '9:00 AM – 6:00 PM' },
-      { day: 'Sunday', time: '11:00 AM – 4:00 PM' }
+      { day: 'Tuesday', time: '10:00 AM – 1:00 PM' },
+      { day: 'Wednesday', time: '10:00 AM – 1:00 PM' },
+      { day: 'Thursday', time: '11:00 AM – 3:00 PM, 4:00 PM – 8:00 PM' },
+      { day: 'Friday', time: '11:00 AM – 3:00 PM, 4:00 PM – 8:00 PM' },
+      { day: 'Saturday', time: '9:00 AM – 1:00 PM, 2:00 PM – 6:00 PM' }
     ]
   }
 };

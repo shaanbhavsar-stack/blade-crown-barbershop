@@ -1,6 +1,6 @@
 (function () {
   const ADMIN_PASSWORD = 'bladeadmin2025';
-  const SESSION_KEY = 'bladeCrownAdminSession';
+  const SESSION_KEY = 'xolarcAdminSession';
 
   let content = loadContent();
 
