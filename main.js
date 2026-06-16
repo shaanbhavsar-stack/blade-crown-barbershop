@@ -1,5 +1,5 @@
-(function () {
-  const content = loadContent();
+(async function () {
+  const content = await loadContent();
 
   // ---------- HERO ----------
   document.getElementById('hero-img').src = content.hero.image;
@@ -15,25 +15,22 @@
 
   // ---------- SERVICES ----------
   const servicesGrid = document.getElementById('services-grid');
-  content.services.forEach((group, gi) => {
-    const col = document.createElement('div');
-    col.className = 'reveal bg-charcoal border border-white/10 card-hover p-8';
-    col.style.setProperty('--d', `${gi * 120}ms`);
-    col.innerHTML = `
-      <h3 class="font-display text-2xl tracking-widest text-gold mb-6">${group.category.toUpperCase()}</h3>
-      <ul class="space-y-5">
-        ${group.items.map(item => `
-          <li class="flex items-start justify-between gap-4 pb-5 border-b border-white/5 last:border-0 last:pb-0">
-            <div>
-              <p class="font-medium text-white">${item.name}</p>
-              <p class="text-sm text-gray-400 mt-1 leading-relaxed">${item.desc}</p>
-            </div>
-            <span class="font-display text-xl text-gold whitespace-nowrap">${item.price}</span>
-          </li>
-        `).join('')}
-      </ul>
-    `;
-    servicesGrid.appendChild(col);
+  let serviceIndex = 0;
+  content.services.forEach((group) => {
+    group.items.forEach((item) => {
+      const card = document.createElement('div');
+      card.className = 'reveal bg-white/5 border border-white/10 card-hover p-8 flex flex-col';
+      card.style.setProperty('--d', `${serviceIndex * 120}ms`);
+      card.innerHTML = `
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="font-display text-2xl tracking-wide text-white">${item.name}</h3>
+          <span class="font-display text-2xl text-gold whitespace-nowrap">${item.price}</span>
+        </div>
+        <p class="text-sm text-white/50 mt-4 leading-relaxed flex-1">${item.desc}</p>
+      `;
+      servicesGrid.appendChild(card);
+      serviceIndex++;
+    });
   });
   document.querySelector('#services h2').textContent = 'SERVICES & PRICING';
 
@@ -41,17 +38,17 @@
   const barbersGrid = document.getElementById('barbers-grid');
   content.barbers.forEach((b, i) => {
     const card = document.createElement('div');
-    card.className = 'reveal bg-charcoal-deep border border-white/10 card-hover overflow-hidden group';
+    card.className = 'reveal bg-cream border border-black/8 card-hover overflow-hidden group grid md:grid-cols-2';
     card.style.setProperty('--d', `${i * 100}ms`);
     card.innerHTML = `
-      <div class="overflow-hidden h-72">
-        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      <div class="overflow-hidden h-80 md:h-full">
+        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
       </div>
-      <div class="p-6">
-        <h3 class="font-display text-2xl tracking-wide text-white">${b.name}</h3>
-        <p class="text-gold text-sm mt-1">${b.specialty}</p>
-        <p class="text-xs uppercase tracking-widest text-gray-500 mt-2">${b.years}</p>
-        <p class="text-sm text-gray-400 mt-4 leading-relaxed">${b.bio}</p>
+      <div class="p-8 md:p-12 flex flex-col justify-center">
+        <h3 class="font-display text-4xl tracking-wide text-ink">${b.name}</h3>
+        <p class="text-gold text-base mt-2">${b.specialty}</p>
+        <p class="text-xs uppercase tracking-widest text-ink/40 mt-3">${b.years}</p>
+        <p class="text-sm text-ink/60 mt-6 leading-relaxed">${b.bio}</p>
       </div>
     `;
     barbersGrid.appendChild(card);
@@ -61,9 +58,9 @@
   const galleryGrid = document.getElementById('gallery-grid');
   content.gallery.forEach((url, i) => {
     const fig = document.createElement('div');
-    fig.className = `reveal overflow-hidden group ${i === 0 ? 'col-span-2 row-span-2' : ''}`;
+    fig.className = `reveal overflow-hidden group aspect-square ${i === 0 ? 'col-span-2 row-span-2' : ''}`;
     fig.style.setProperty('--d', `${(i % 4) * 90}ms`);
-    fig.innerHTML = `<img src="${url}" alt="Xolarc Barber Co. gallery photo" class="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110" />`;
+    fig.innerHTML = `<img src="${url}" alt="Xolarc Barber Co. gallery photo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />`;
     galleryGrid.appendChild(fig);
   });
 
@@ -71,49 +68,20 @@
   const testimonialsGrid = document.getElementById('testimonials-grid');
   content.testimonials.forEach((t, i) => {
     const card = document.createElement('div');
-    card.className = 'reveal bg-charcoal-deep border border-white/10 card-hover p-8 flex flex-col';
+    card.className = 'reveal bg-white/5 border border-white/10 card-hover p-8 flex flex-col';
     card.style.setProperty('--d', `${i * 90}ms`);
     const stars = Array.from({ length: 5 }, (_, idx) => `<span class="star">${idx < t.rating ? '★' : '☆'}</span>`).join('');
     card.innerHTML = `
       <div class="text-lg mb-4">${stars}</div>
-      <p class="font-serif italic text-gray-300 leading-relaxed flex-1">"${t.text}"</p>
+      <p class="font-serif italic text-white/70 leading-relaxed flex-1">"${t.text}"</p>
       <p class="mt-6 text-sm uppercase tracking-widest text-gold">— ${t.name}</p>
     `;
     testimonialsGrid.appendChild(card);
   });
 
-  // ---------- BOOKING FORM SELECTS ----------
-  const serviceSelect = document.querySelector('select[name="service"]');
-  content.services.forEach(group => {
-    group.items.forEach(item => {
-      const opt = document.createElement('option');
-      opt.value = `${group.category} — ${item.name}`;
-      opt.textContent = `${item.name} (${item.price})`;
-      serviceSelect.appendChild(opt);
-    });
-  });
-  const barberSelect = document.querySelector('select[name="barber"]');
-  content.barbers.forEach(b => {
-    const opt = document.createElement('option');
-    opt.value = b.name;
-    opt.textContent = b.name;
-    barberSelect.appendChild(opt);
-  });
-
-  document.getElementById('booking-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    const msg = document.getElementById('booking-confirmation');
-    msg.textContent = `Thank you, ${data.get('name').split(' ')[0]} — your request for "${data.get('service') || 'a service'}" on ${data.get('date')} at ${data.get('time')} has been received. We'll confirm by email shortly.`;
-    msg.classList.remove('hidden');
-    e.target.reset();
-  });
-
   // ---------- CONTACT ----------
   document.getElementById('contact-address').textContent = content.contact.address;
   document.getElementById('contact-neighborhood').textContent = `${content.contact.neighborhood} · Dallas, TX`;
-  document.getElementById('contact-phone').textContent = content.contact.phone;
-  document.getElementById('contact-email').textContent = content.contact.email;
   const hoursEl = document.getElementById('contact-hours');
   content.contact.hours.forEach(h => {
     const row = document.createElement('p');
@@ -121,23 +89,13 @@
     hoursEl.appendChild(row);
   });
 
-  // ---------- NAV SCROLL STATE ----------
-  const nav = document.getElementById('site-nav');
-  function onScroll() {
-    if (window.scrollY > 60) {
-      nav.classList.add('bg-charcoal-deep/90', 'backdrop-blur', 'border-b', 'border-white/5');
-    } else {
-      nav.classList.remove('bg-charcoal-deep/90', 'backdrop-blur', 'border-b', 'border-white/5');
-    }
-  }
-  window.addEventListener('scroll', onScroll);
-  onScroll();
-
   // ---------- MOBILE MENU ----------
   const menuBtn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+  if (menuBtn && menu) {
+    menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+  }
 
   // ---------- SCROLL REVEAL ----------
   const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
