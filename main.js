@@ -6,13 +6,6 @@
   document.getElementById('hero-tagline').textContent = content.hero.tagline;
   document.getElementById('hero-subtext').textContent = content.hero.subtext;
 
-  // ---------- ABOUT ----------
-  document.getElementById('about-heading').textContent = content.about.heading;
-  document.getElementById('about-story').textContent = content.about.story;
-  document.getElementById('about-philosophy').textContent = content.about.philosophy;
-  document.getElementById('about-founded').textContent = content.about.founded;
-  document.getElementById('about-img').src = content.about.image;
-
   // ---------- BARBERS ----------
   const barbersGrid = document.getElementById('barbers-grid');
   content.barbers.forEach((b, i) => {
