@@ -14,8 +14,8 @@
       extend: {
         colors: {
           charcoal: { DEFAULT: '#0d0d10', light: '#1a1a1f', deep: '#070708' },
-          gold: { DEFAULT: '#ff2e7e', light: '#ff6fa8', dark: '#c91361' },
-          electric: { DEFAULT: '#3ddc97', light: '#7af5c4', dark: '#1fae72' }
+          gold: { DEFAULT: '#C9A84C', light: '#E0C070', dark: '#9A7A2E' },
+          electric: { DEFAULT: '#C9A84C', light: '#E0C070', dark: '#9A7A2E' }
         },
         fontFamily: {
           display: ['"Bebas Neue"', 'sans-serif'],
@@ -38,26 +38,26 @@
   .stagger > * { transition-delay: var(--d, 0ms); }
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: #070708; }
-  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #ff2e7e, #3ddc97); border-radius: 6px; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #C9A84C, #9A7A2E); border-radius: 6px; }
   .gold-underline::after {
     content: ''; display: block; width: 64px; height: 3px; margin-top: 14px;
-    background: linear-gradient(90deg, #ff2e7e, #3ddc97);
+    background: linear-gradient(90deg, #C9A84C, #E0C070);
   }
   .gold-underline.center::after { margin-left: auto; margin-right: auto; }
   .nav-link { position: relative; }
   .nav-link::after {
     content: ''; position: absolute; left: 0; bottom: -4px; width: 0%; height: 1px;
-    background: #ff2e7e; transition: width 0.3s ease;
+    background: #C9A84C; transition: width 0.3s ease;
   }
   .nav-link:hover::after { width: 100%; }
   .card-hover { transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
-  .card-hover:hover { transform: translateY(-6px); border-color: #ff2e7e; box-shadow: 0 20px 40px -16px rgba(255,46,126,0.25); }
-  .star { color: #ff2e7e; }
+  .card-hover:hover { transform: translateY(-6px); border-color: #C9A84C; box-shadow: 0 20px 40px -16px rgba(201,168,76,0.25); }
+  .star { color: #C9A84C; }
   .hero-overlay {
     background: linear-gradient(180deg, rgba(7,7,8,0.55) 0%, rgba(7,7,8,0.75) 55%, rgba(13,13,16,1) 100%);
   }
   .logo-grad {
-    background: linear-gradient(90deg, #ff2e7e, #ff7a3d, #3ddc97);
+    background: linear-gradient(90deg, #C9A84C, #E0C070, #9A7A2E);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
   input::placeholder, textarea::placeholder { color: #8a8a8a; }
@@ -217,7 +217,7 @@
       </div>
       <div class="reveal-right">
         <div class="w-full h-[420px] lg:h-full min-h-[360px] bg-charcoal-light border border-white/10 flex flex-col items-center justify-center text-gray-500 gap-3 relative overflow-hidden">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ff2e7e" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
           <p class="text-sm tracking-wide">Google Maps — 4951 Airport Pkwy, Addison, TX</p>
           <p class="text-xs text-gray-600">[ Map embed placeholder ]</p>
         </div>
