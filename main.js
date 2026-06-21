@@ -61,8 +61,8 @@
     card.className = 'reveal bg-charcoal-light border border-white/8 overflow-hidden flex flex-col';
     card.style.setProperty('--d', `${i * 80}ms`);
     card.innerHTML = `
-      <a href="${igUrl}" target="_blank" rel="noopener" class="block overflow-hidden aspect-square">
-        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+      <a href="${igUrl}" target="_blank" rel="noopener" class="block overflow-hidden aspect-square" style="border-radius:0">
+        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="border-radius:0" />
       </a>
       <div class="p-5 flex flex-col flex-1">
         <h3 class="font-display text-2xl tracking-wide text-white">${b.name}</h3>
