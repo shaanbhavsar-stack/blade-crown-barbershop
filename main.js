@@ -78,33 +78,6 @@
     testimonialsGrid.appendChild(card);
   });
 
-  // ---------- BOOKING FORM SELECTS ----------
-  const serviceSelect = document.querySelector('select[name="service"]');
-  content.services.forEach(group => {
-    group.items.forEach(item => {
-      const opt = document.createElement('option');
-      opt.value = `${group.category} — ${item.name}`;
-      opt.textContent = `${item.name} (${item.price})`;
-      serviceSelect.appendChild(opt);
-    });
-  });
-  const barberSelect = document.querySelector('select[name="barber"]');
-  content.barbers.forEach(b => {
-    const opt = document.createElement('option');
-    opt.value = b.name;
-    opt.textContent = b.name;
-    barberSelect.appendChild(opt);
-  });
-
-  document.getElementById('booking-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    const msg = document.getElementById('booking-confirmation');
-    msg.textContent = `Thank you, ${data.get('name').split(' ')[0]} — your request for "${data.get('service') || 'a service'}" on ${data.get('date')} at ${data.get('time')} has been received. We'll confirm by email shortly.`;
-    msg.classList.remove('hidden');
-    e.target.reset();
-  });
-
   // ---------- CONTACT ----------
   document.getElementById('contact-address').textContent = content.contact.address;
   document.getElementById('contact-neighborhood').textContent = `${content.contact.neighborhood} · Dallas, TX`;
