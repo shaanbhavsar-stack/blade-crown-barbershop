@@ -79,7 +79,7 @@
         <a href="#testimonials" class="nav-link hover:text-gold transition-colors">Reviews</a>
         <a href="#contact" class="nav-link hover:text-gold transition-colors">Contact</a>
       </nav>
-      <a href="#booking" class="hidden md:inline-block border border-gold text-gold text-sm uppercase tracking-widest px-6 py-2.5 hover:bg-gold hover:text-charcoal-deep transition-colors duration-300">
+      <a href="#barbers" class="hidden md:inline-block border border-gold text-gold text-sm uppercase tracking-widest px-6 py-2.5 hover:bg-gold hover:text-charcoal-deep transition-colors duration-300">
         Book Your Cut
       </a>
       <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Open menu">
@@ -94,7 +94,7 @@
         <a href="#gallery" class="mobile-link hover:text-gold">Gallery</a>
         <a href="#testimonials" class="mobile-link hover:text-gold">Reviews</a>
         <a href="#contact" class="mobile-link hover:text-gold">Contact</a>
-        <a href="#booking" class="mobile-link text-gold border border-gold text-center px-6 py-2.5 mt-2">Book Your Cut</a>
+        <a href="#barbers" class="mobile-link text-gold border border-gold text-center px-6 py-2.5 mt-2">Book Your Cut</a>
       </div>
     </div>
   </header>
@@ -111,7 +111,7 @@
       <p id="hero-tagline" class="reveal is-visible mt-6 font-serif italic text-xl sm:text-2xl text-gray-200 max-w-2xl mx-auto"></p>
       <p id="hero-subtext" class="reveal is-visible mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto"></p>
       <div class="reveal is-visible mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#booking" class="bg-gold text-charcoal-deep font-semibold uppercase tracking-widest text-sm px-9 py-4 hover:bg-gold-light transition-colors duration-300">Book Your Cut</a>
+        <a href="#barbers" class="bg-gold text-charcoal-deep font-semibold uppercase tracking-widest text-sm px-9 py-4 hover:bg-gold-light transition-colors duration-300">Book Your Cut</a>
         <a href="#services" class="border border-white/40 text-white uppercase tracking-widest text-sm px-9 py-4 hover:border-gold hover:text-gold transition-colors duration-300">View Services</a>
       </div>
     </div>
@@ -200,52 +200,6 @@
     </div>
   </section>
 
-  <!-- BOOKING -->
-  <section id="booking" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal-deep border-y border-white/5">
-    <div class="max-w-3xl mx-auto text-center reveal">
-      <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Reserve Your Chair</p>
-      <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">BOOK YOUR CUT</h2>
-      <p class="mt-6 text-gray-400">Fill out the form below and our front desk will confirm your appointment within one business day.</p>
-    </div>
-    <form id="booking-form" class="reveal mt-14 max-w-2xl mx-auto grid sm:grid-cols-2 gap-6">
-      <div class="sm:col-span-1">
-        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
-        <input required name="name" type="text" placeholder="John Smith" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
-      </div>
-      <div class="sm:col-span-1">
-        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Email Address</label>
-        <input required name="email" type="email" placeholder="john@email.com" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
-      </div>
-      <div class="sm:col-span-1">
-        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Service</label>
-        <select required name="service" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors">
-          <option value="">Select a service…</option>
-        </select>
-      </div>
-      <div class="sm:col-span-1">
-        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Preferred Barber</label>
-        <select required name="barber" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors">
-          <option value="">No preference</option>
-        </select>
-      </div>
-      <div class="sm:col-span-1">
-        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Date</label>
-        <input required name="date" type="date" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
-      </div>
-      <div class="sm:col-span-1">
-        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Time</label>
-        <input required name="time" type="time" class="w-full bg-charcoal-deep border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors" />
-      </div>
-      <div class="sm:col-span-2">
-        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Notes (optional)</label>
-        <textarea name="notes" rows="3" placeholder="Anything we should know before your visit?" class="w-full bg-transparent border border-white/20 focus:border-gold outline-none px-4 py-3 text-white transition-colors"></textarea>
-      </div>
-      <div class="sm:col-span-2 text-center mt-2">
-        <button type="submit" class="bg-gold text-charcoal-deep font-semibold uppercase tracking-widest text-sm px-12 py-4 hover:bg-gold-light transition-colors duration-300">Request Appointment</button>
-        <p id="booking-confirmation" class="hidden mt-5 text-gold font-serif italic text-lg"></p>
-      </div>
-    </form>
-  </section>
 
   <!-- CONTACT -->
   <section id="contact" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
