@@ -13,9 +13,9 @@
     theme: {
       extend: {
         colors: {
-          charcoal: { DEFAULT: '#0d0d10', light: '#1a1a1f', deep: '#070708' },
-          gold: { DEFAULT: '#C9A84C', light: '#E0C070', dark: '#9A7A2E' },
-          electric: { DEFAULT: '#C9A84C', light: '#E0C070', dark: '#9A7A2E' }
+          ink: { DEFAULT: '#0a0a0a', soft: '#1a1a1a', muted: '#6b6b6b' },
+          stone: { DEFAULT: '#f5f5f5', light: '#fafafa', dark: '#e8e8e8' },
+          accent: { DEFAULT: '#0a0a0a' }
         },
         fontFamily: {
           display: ['"Bebas Neue"', 'sans-serif'],
@@ -28,71 +28,64 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  body { background-color: #0d0d10; }
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  body { background-color: #ffffff; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal-left.is-visible { opacity: 1; transform: translateX(0); }
-  .reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal-right.is-visible { opacity: 1; transform: translateX(0); }
   .stagger > * { transition-delay: var(--d, 0ms); }
-  ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-track { background: #070708; }
-  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #C9A84C, #9A7A2E); border-radius: 6px; }
-  .gold-underline::after {
-    content: ''; display: block; width: 64px; height: 3px; margin-top: 14px;
-    background: linear-gradient(90deg, #C9A84C, #E0C070);
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #f5f5f5; }
+  ::-webkit-scrollbar-thumb { background: #d0d0d0; border-radius: 4px; }
+  .rule-underline::after {
+    content: ''; display: block; width: 48px; height: 2px; margin-top: 14px;
+    background: #0a0a0a;
   }
-  .gold-underline.center::after { margin-left: auto; margin-right: auto; }
+  .rule-underline.center::after { margin-left: auto; margin-right: auto; }
   .nav-link { position: relative; }
   .nav-link::after {
     content: ''; position: absolute; left: 0; bottom: -4px; width: 0%; height: 1px;
-    background: #C9A84C; transition: width 0.3s ease;
+    background: #0a0a0a; transition: width 0.3s ease;
   }
   .nav-link:hover::after { width: 100%; }
-  .card-hover { transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
-  .card-hover:hover { transform: translateY(-6px); border-color: #C9A84C; box-shadow: 0 20px 40px -16px rgba(201,168,76,0.25); }
-  .star { color: #C9A84C; }
+  .card-hover { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -12px rgba(0,0,0,0.12); }
+  .star { color: #0a0a0a; }
   .hero-overlay {
-    background: linear-gradient(180deg, rgba(7,7,8,0.55) 0%, rgba(7,7,8,0.75) 55%, rgba(13,13,16,1) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 55%, rgba(255,255,255,1) 100%);
   }
-  .logo-grad {
-    background: linear-gradient(90deg, #C9A84C, #E0C070, #9A7A2E);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  input::placeholder, textarea::placeholder { color: #8a8a8a; }
 </style>
 </head>
-<body class="bg-charcoal text-white font-sans antialiased">
+<body class="bg-white text-ink font-sans antialiased">
 
   <!-- NAV -->
-  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-500 bg-charcoal-deep/0">
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/0">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
-      <a href="#hero" class="font-display tracking-widest text-2xl text-white">
-        XOLA <span class="logo-grad">SUITES</span>
+      <a href="#hero" class="font-display tracking-widest text-2xl text-ink">
+        XOLA SUITES
       </a>
-      <nav class="hidden md:flex items-center gap-9 text-sm uppercase tracking-widest text-gray-300">
-        <a href="#about" class="nav-link hover:text-gold transition-colors">About</a>
-        <a href="#barbers" class="nav-link hover:text-gold transition-colors">Barbers</a>
-        <a href="#gallery" class="nav-link hover:text-gold transition-colors">Gallery</a>
-        <a href="#testimonials" class="nav-link hover:text-gold transition-colors">Reviews</a>
-        <a href="#contact" class="nav-link hover:text-gold transition-colors">Contact</a>
+      <nav class="hidden md:flex items-center gap-9 text-xs uppercase tracking-widest text-ink/60">
+        <a href="#barbers" class="nav-link hover:text-ink transition-colors">Barbers</a>
+        <a href="#gallery" class="nav-link hover:text-ink transition-colors">Gallery</a>
+        <a href="#testimonials" class="nav-link hover:text-ink transition-colors">Reviews</a>
+        <a href="#contact" class="nav-link hover:text-ink transition-colors">Contact</a>
       </nav>
-      <a href="#barbers" class="hidden md:inline-block border border-gold text-gold text-sm uppercase tracking-widest px-6 py-2.5 hover:bg-gold hover:text-charcoal-deep transition-colors duration-300">
-        Book Your Cut
+      <a href="#barbers" class="hidden md:inline-block bg-ink text-white text-xs uppercase tracking-widest px-6 py-2.5 hover:bg-ink/80 transition-colors duration-300">
+        Book Now
       </a>
-      <button id="mobile-menu-btn" class="md:hidden text-white" aria-label="Open menu">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+      <button id="mobile-menu-btn" class="md:hidden text-ink" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-charcoal-deep border-t border-white/10">
-      <div class="flex flex-col px-6 py-4 gap-4 text-sm uppercase tracking-widest text-gray-300">
-        <a href="#about" class="mobile-link hover:text-gold">About</a>
-        <a href="#barbers" class="mobile-link hover:text-gold">Barbers</a>
-        <a href="#gallery" class="mobile-link hover:text-gold">Gallery</a>
-        <a href="#testimonials" class="mobile-link hover:text-gold">Reviews</a>
-        <a href="#contact" class="mobile-link hover:text-gold">Contact</a>
-        <a href="#barbers" class="mobile-link text-gold border border-gold text-center px-6 py-2.5 mt-2">Book Your Cut</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-dark">
+      <div class="flex flex-col px-6 py-4 gap-4 text-xs uppercase tracking-widest text-ink/60">
+        <a href="#barbers" class="mobile-link hover:text-ink">Barbers</a>
+        <a href="#gallery" class="mobile-link hover:text-ink">Gallery</a>
+        <a href="#testimonials" class="mobile-link hover:text-ink">Reviews</a>
+        <a href="#contact" class="mobile-link hover:text-ink">Contact</a>
+        <a href="#barbers" class="mobile-link text-white bg-ink text-center px-6 py-2.5 mt-2 text-xs uppercase tracking-widest">Book Now</a>
       </div>
     </div>
   </header>
@@ -102,97 +95,94 @@
     <img id="hero-img" src="" alt="Inside Xola Suites" class="absolute inset-0 w-full h-full object-cover scale-105" />
     <div class="absolute inset-0 hero-overlay"></div>
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <p class="reveal is-visible uppercase tracking-[0.4em] text-gold text-xs sm:text-sm mb-5">Addison, TX · @xolarc</p>
-      <h1 class="reveal is-visible font-display text-5xl sm:text-7xl lg:text-8xl tracking-wide leading-[0.95]">
-        XOLA <span class="logo-grad">SUITES</span>
+      <p class="reveal is-visible uppercase tracking-[0.4em] text-white/70 text-xs sm:text-sm mb-5">Addison, TX · @xolarc</p>
+      <h1 class="reveal is-visible font-display text-5xl sm:text-7xl lg:text-8xl tracking-wide leading-[0.95] text-white">
+        XOLA SUITES
       </h1>
-      <p id="hero-tagline" class="reveal is-visible mt-6 font-serif italic text-xl sm:text-2xl text-gray-200 max-w-2xl mx-auto"></p>
-      <p id="hero-subtext" class="reveal is-visible mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto"></p>
+      <p id="hero-tagline" class="reveal is-visible mt-6 font-serif italic text-xl sm:text-2xl text-white/90 max-w-2xl mx-auto"></p>
+      <p id="hero-subtext" class="reveal is-visible mt-4 text-white/60 text-sm sm:text-base max-w-xl mx-auto"></p>
       <div class="reveal is-visible mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#barbers" class="bg-gold text-charcoal-deep font-semibold uppercase tracking-widest text-sm px-9 py-4 hover:bg-gold-light transition-colors duration-300">Book Your Cut</a>
+        <a href="#barbers" class="bg-white text-ink font-semibold uppercase tracking-widest text-xs px-9 py-4 hover:bg-stone transition-colors duration-300">Book Your Cut</a>
       </div>
     </div>
-    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 hover:text-gold transition-colors animate-bounce">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
+    <a href="#barbers" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink/40 hover:text-ink transition-colors animate-bounce">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
     </a>
   </section>
 
-
-
   <!-- BARBERS -->
-  <section id="barbers" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
+  <section id="barbers" class="py-28 lg:py-36 px-6 lg:px-10 bg-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-2xl mx-auto reveal">
-        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">The Team</p>
-        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">MEET YOUR BARBER</h2>
-        <p class="mt-6 text-gray-400">One chair, one standard of craft — fully dialed in to you.</p>
+        <p class="uppercase tracking-[0.35em] text-ink/40 text-xs mb-4">The Team</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide rule-underline center">MEET YOUR BARBER</h2>
+        <p class="mt-6 text-ink/50 text-sm">One chair, one standard of craft — fully dialed in to you.</p>
       </div>
       <div id="barbers-grid" class="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8"></div>
     </div>
   </section>
 
   <!-- GALLERY -->
-  <section id="gallery" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal-deep border-y border-white/5">
+  <section id="gallery" class="py-28 lg:py-36 px-6 lg:px-10 bg-stone-light border-y border-stone-dark">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-2xl mx-auto reveal">
-        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Inside The Shop</p>
-        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">GALLERY</h2>
+        <p class="uppercase tracking-[0.35em] text-ink/40 text-xs mb-4">Inside The Shop</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide rule-underline center">GALLERY</h2>
       </div>
       <div id="gallery-grid" class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section id="testimonials" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
+  <section id="testimonials" class="py-28 lg:py-36 px-6 lg:px-10 bg-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-2xl mx-auto reveal">
-        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Word On The Street</p>
-        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline center">TESTIMONIALS</h2>
+        <p class="uppercase tracking-[0.35em] text-ink/40 text-xs mb-4">Word On The Street</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide rule-underline center">TESTIMONIALS</h2>
       </div>
       <div id="testimonials-grid" class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
   </section>
 
-
   <!-- CONTACT -->
-  <section id="contact" class="py-28 lg:py-36 px-6 lg:px-10 bg-charcoal">
+  <section id="contact" class="py-28 lg:py-36 px-6 lg:px-10 bg-stone-light border-t border-stone-dark">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
       <div class="reveal-left">
-        <p class="uppercase tracking-[0.35em] text-gold text-xs mb-4">Visit Us</p>
-        <h2 class="font-display text-4xl sm:text-5xl tracking-wide gold-underline">CONTACT &amp; HOURS</h2>
-        <div class="mt-10 space-y-7 text-gray-300">
+        <p class="uppercase tracking-[0.35em] text-ink/40 text-xs mb-4">Visit Us</p>
+        <h2 class="font-display text-4xl sm:text-5xl tracking-wide rule-underline">CONTACT &amp; HOURS</h2>
+        <div class="mt-10 space-y-7 text-ink/70">
           <div class="flex gap-4">
-            <svg class="text-gold shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            <svg class="text-ink shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
             <div>
-              <p id="contact-address" class="font-medium text-white"></p>
-              <p id="contact-neighborhood" class="text-sm text-gray-500 mt-0.5"></p>
+              <p id="contact-address" class="font-medium text-ink"></p>
+              <p id="contact-neighborhood" class="text-sm text-ink/40 mt-0.5"></p>
             </div>
           </div>
           <div class="flex gap-4">
-            <svg class="text-gold shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="text-ink shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             <div id="contact-hours" class="space-y-1 text-sm"></div>
           </div>
         </div>
       </div>
       <div class="reveal-right">
-        <a href="https://maps.apple.com/?address=3939+Belt+Line+Rd,+Addison,+TX+75001" target="_blank" rel="noopener" class="w-full h-[420px] lg:h-full min-h-[360px] bg-charcoal-light border border-white/10 flex flex-col items-center justify-center text-gray-500 gap-3 relative overflow-hidden hover:border-gold transition-colors duration-300 group">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.2" class="group-hover:scale-110 transition-transform duration-300"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-          <p class="text-sm tracking-wide">3939 Belt Line Rd, Addison, TX</p>
-          <p class="text-xs text-gold uppercase tracking-widest mt-1">Open in Apple Maps →</p>
+        <a href="https://maps.apple.com/?address=3939+Belt+Line+Rd,+Addison,+TX+75001" target="_blank" rel="noopener" class="w-full h-[420px] lg:h-full min-h-[360px] bg-stone-dark border border-stone-dark flex flex-col items-center justify-center text-ink/40 gap-3 relative overflow-hidden hover:border-ink transition-colors duration-300 group">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="1.2" class="group-hover:scale-110 transition-transform duration-300 opacity-40 group-hover:opacity-100"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <p class="text-sm tracking-wide text-ink/50">3939 Belt Line Rd, Addison, TX</p>
+          <p class="text-xs text-ink uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Open in Apple Maps →</p>
         </a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-charcoal-deep border-t border-white/5 py-12 px-6 lg:px-10">
+  <footer class="bg-ink py-12 px-6 lg:px-10">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <a href="#hero" class="font-display tracking-widest text-xl text-white">XOLA <span class="logo-grad">SUITES</span></a>
-      <p class="text-xs text-gray-500 text-center">© 2026 Xola Suites · 4951 Airport Pkwy, Addison, TX · All rights reserved</p>
-      <div class="flex items-center gap-5 text-gray-400">
-        <a href="https://www.instagram.com/xolarc/" target="_blank" rel="noopener" class="hover:text-gold transition-colors" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="https://booksy.com/en-us/548381_xolarc_barber-shop_36501_addison#ba_s=seo" target="_blank" rel="noopener" class="hover:text-gold transition-colors" aria-label="Booksy Booking"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg></a>
-        <a href="/admin.html" class="text-[10px] uppercase tracking-widest text-gray-700 hover:text-gray-500 transition-colors ml-2">Admin</a>
+      <a href="#hero" class="font-display tracking-widest text-xl text-white">XOLA SUITES</a>
+      <p class="text-xs text-white/30 text-center">© 2026 Xola Suites · 3939 Belt Line Rd, Addison, TX · All rights reserved</p>
+      <div class="flex items-center gap-5 text-white/40">
+        <a href="https://www.instagram.com/xolarc/" target="_blank" rel="noopener" class="hover:text-white transition-colors" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="https://booksy.com/en-us/548381_xolarc_barber-shop_36501_addison#ba_s=seo" target="_blank" rel="noopener" class="hover:text-white transition-colors" aria-label="Booksy Booking"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg></a>
+        <a href="/admin.html" class="text-[10px] uppercase tracking-widest text-white/20 hover:text-white/40 transition-colors ml-2">Admin</a>
       </div>
     </div>
   </footer>

@@ -27,18 +27,18 @@
     };
     const igUrl = igLinks[b.name] || '#';
     const bookUrl = bookingLinks[b.name];
-    card.className = 'reveal bg-charcoal-light border border-white/8 overflow-hidden flex flex-col';
+    card.className = 'reveal bg-white border border-stone-dark overflow-hidden flex flex-col card-hover';
     card.style.setProperty('--d', `${i * 80}ms`);
     card.innerHTML = `
       <a href="${igUrl}" target="_blank" rel="noopener" class="block overflow-hidden aspect-square" style="border-radius:0">
         <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="border-radius:0" />
       </a>
       <div class="p-5 flex flex-col flex-1">
-        <h3 class="font-display text-2xl tracking-wide text-white">${b.name}</h3>
-        <p class="text-gold text-xs uppercase tracking-widest mt-1">${b.specialty}</p>
-        <p class="text-xs text-gray-500 mt-0.5">${b.years}</p>
-        <p class="text-sm text-gray-400 mt-3 leading-relaxed flex-1">${b.bio}</p>
-        ${bookUrl ? `<a href="${bookUrl}" target="_blank" rel="noopener" class="mt-5 block text-center border border-gold text-gold text-xs uppercase tracking-widest py-2.5 hover:bg-gold hover:text-charcoal-deep transition-colors duration-300">Book Now</a>` : ''}
+        <h3 class="font-display text-2xl tracking-wide text-ink">${b.name}</h3>
+        <p class="text-ink/40 text-xs uppercase tracking-widest mt-1">${b.specialty}</p>
+        <p class="text-xs text-ink/30 mt-0.5">${b.years}</p>
+        <p class="text-sm text-ink/60 mt-3 leading-relaxed flex-1">${b.bio}</p>
+        ${bookUrl ? `<a href="${bookUrl}" target="_blank" rel="noopener" class="mt-5 block text-center bg-ink text-white text-xs uppercase tracking-widest py-2.5 hover:bg-ink/80 transition-colors duration-300">Book Now</a>` : ''}
       </div>
     `;
     barbersGrid.appendChild(card);
@@ -58,13 +58,13 @@
   const testimonialsGrid = document.getElementById('testimonials-grid');
   content.testimonials.forEach((t, i) => {
     const card = document.createElement('div');
-    card.className = 'reveal bg-charcoal-deep border border-white/10 card-hover p-8 flex flex-col';
+    card.className = 'reveal bg-stone-light border border-stone-dark card-hover p-8 flex flex-col';
     card.style.setProperty('--d', `${i * 90}ms`);
     const stars = Array.from({ length: 5 }, (_, idx) => `<span class="star">${idx < t.rating ? '★' : '☆'}</span>`).join('');
     card.innerHTML = `
       <div class="text-lg mb-4">${stars}</div>
-      <p class="font-serif italic text-gray-300 leading-relaxed flex-1">"${t.text}"</p>
-      <p class="mt-6 text-sm uppercase tracking-widest text-gold">— ${t.name}</p>
+      <p class="font-serif italic text-ink/70 leading-relaxed flex-1">"${t.text}"</p>
+      <p class="mt-6 text-xs uppercase tracking-widest text-ink/40">— ${t.name}</p>
     `;
     testimonialsGrid.appendChild(card);
   });
@@ -75,7 +75,7 @@
   const hoursEl = document.getElementById('contact-hours');
   content.contact.hours.forEach(h => {
     const row = document.createElement('p');
-    row.innerHTML = `<span class="text-white">${h.day}:</span> <span class="text-gray-400">${h.time}</span>`;
+    row.innerHTML = `<span class="text-ink font-medium">${h.day}:</span> <span class="text-ink/50">${h.time}</span>`;
     hoursEl.appendChild(row);
   });
 
@@ -83,9 +83,9 @@
   const nav = document.getElementById('site-nav');
   function onScroll() {
     if (window.scrollY > 60) {
-      nav.classList.add('bg-charcoal-deep/90', 'backdrop-blur', 'border-b', 'border-white/5');
+      nav.classList.add('bg-white/95', 'backdrop-blur', 'border-b', 'border-stone-dark', 'shadow-sm');
     } else {
-      nav.classList.remove('bg-charcoal-deep/90', 'backdrop-blur', 'border-b', 'border-white/5');
+      nav.classList.remove('bg-white/95', 'backdrop-blur', 'border-b', 'border-stone-dark', 'shadow-sm');
     }
   }
   window.addEventListener('scroll', onScroll);
