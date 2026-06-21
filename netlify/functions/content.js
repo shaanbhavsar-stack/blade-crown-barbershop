@@ -2,9 +2,11 @@ const { getStore } = require('@netlify/blobs');
 
 const KEY = 'site-content.json';
 const ADMIN_PASSWORD = 'bladeadmin2025';
+const SITE_ID = '2c0e89c2-0743-4e6d-a8f3-23bb1d79612f';
+const TOKEN = 'nfp_uDxJNyCfj7HLfMZNTHvz9bAWqPVP1iKW8739';
 
 exports.handler = async (event) => {
-  const store = getStore('xolarc-content');
+  const store = getStore({ name: 'xolarc-content', siteID: SITE_ID, token: TOKEN });
 
   if (event.httpMethod === 'GET') {
     const data = await store.get(KEY);
