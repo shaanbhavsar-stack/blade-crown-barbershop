@@ -18,29 +18,11 @@ const defaultContent = {
   },
   services: [
     {
-      category: 'Haircuts',
+      category: 'Popular Services',
       items: [
-        { name: 'Signature Taper', price: '$45', desc: 'Custom-blended taper dialed in to your hair texture and face shape.' },
-        { name: 'Skin Fade', price: '$50', desc: 'Razor-sharp, seamless skin fade with a flawless transition into your length.' },
-        { name: 'Textured Crop / Mullet', price: '$50', desc: 'Modern texture work — choppy fringe, curly crops, and mullet shapes.' },
-        { name: 'Buzz Cut', price: '$30', desc: 'Clean, even, all-over clipper cut. Quick, sharp, low maintenance.' },
-        { name: 'Kids Cut (12 & under)', price: '$30', desc: 'Patient, dialed-in cuts for the next generation of regulars.' }
-      ]
-    },
-    {
-      category: 'Add-Ons & Touch-Ups',
-      items: [
-        { name: 'Beard Trim & Line-Up', price: '$15', desc: 'Sharp lineup and beard shaping to finish off your look.' },
-        { name: 'Hot Towel Refresh', price: '$10', desc: 'Steamed towel treatment for a relaxing finish to any cut.' },
-        { name: 'Eyebrow Cleanup', price: '$10', desc: 'Quick brow trim and shape for a polished, put-together look.' }
-      ]
-    },
-    {
-      category: 'Signature Packages',
-      items: [
-        { name: 'The Full Confidence', price: '$70', desc: 'Signature taper or fade + beard line-up + hot towel refresh.' },
-        { name: 'The 360 Transformation', price: '$95', desc: 'Full cut, color/texture consult, beard work, and styling — the works.' },
-        { name: 'First Visit Special', price: '$40', desc: 'New clients: any signature cut, dialed in and documented for next time.' }
+        { name: 'Fade', price: '$90', desc: 'Transform your look with an expert haircut service. Elevate your style and confidence with a precision fade.' },
+        { name: 'Fade & Bear', price: '$95', desc: 'A tailored look that enhances your style and sophistication — fade plus full beard sculpt. Experience luxury.' },
+        { name: 'All Scissor Haircut', price: '$90', desc: 'A fully hand-scissored cut for natural texture and a soft, blended finish — no clippers needed.' }
       ]
     }
   ],
@@ -55,26 +37,26 @@ const defaultContent = {
   ],
   gallery: [
     'https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1974&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=2069&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=2070&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1974&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1599387431119-f60be7f9d3e8?q=80&w=1974&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=1974&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1622296089780-290d715192af?q=80&w=1974&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1583864697784-a0efc8379f70?q=80&w=1974&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1974&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1974&auto=format&fit=crop'
   ],
   testimonials: [
-    { name: 'Jordan M.', rating: 5, text: "Carlo is the only barber I trust with my hair. The skin fade transition is unreal — clean every single time, and the vibe in the shop is always good energy." },
-    { name: 'Diego A.', rating: 5, text: "Followed @xolarc on Instagram for months before booking and it did not disappoint. Walked out feeling like a completely different (better) person." },
-    { name: 'Tyler R.', rating: 5, text: "Best textured crop I've ever had. Carlo actually listens to what you want instead of just doing his go-to cut. Worth the drive to Addison." },
-    { name: 'Marcus B.', rating: 4, text: "Great cut, great conversation, fair prices. Only downside is it books up fast — but that's because he's that good." },
-    { name: 'Sam K.', rating: 5, text: "Brought my son in for his first real haircut and Carlo made it such an easy, fun experience. We're regulars now." }
+    { name: 'Anthony', rating: 5, text: "Very helpful and insightful. Gave me exactly what I wanted — definitely coming back." },
+    { name: 'Pedro', rating: 5, text: "Super cool guy and did a great job with my haircut, will definitely be going back!" },
+    { name: 'Fernando', rating: 5, text: "Highly recommend, great atmosphere. Only started getting compliments on my haircuts after going to Carlo." },
+    { name: 'Alejandro', rating: 5, text: "I have never gotten a haircut like I did. I'm definitely coming back." },
+    { name: 'Fredi', rating: 5, text: "Carlo is an exceptional barber who deserves endless praise for the precision and care he brings to every haircut. He truly listens to your goals." },
+    { name: 'Evan', rating: 5, text: "Best barber in Texas, gives you advice and tips and even tips to take care of hair long term. Good vibes and cares about his client. Best haircut I've gotten." }
   ],
   contact: {
-    address: '4951 Airport Pkwy, 6th Floor Suite 600, Addison, TX 75001',
+    address: '3939 Belt Line Rd, First Door on the Left, Addison, TX 75001',
     neighborhood: 'Addison',
-    phone: '(469) 555-0192',
-    email: 'book@xolarcbarber.com',
+    booksyUrl: 'https://booksy.com/en-us/548381_xolarc_barber-shop_36501_addison#ba_s=seo',
     hours: [
       { day: 'Sunday', time: 'Closed' },
       { day: 'Monday', time: 'Closed' },
@@ -87,7 +69,19 @@ const defaultContent = {
   }
 };
 
-function loadContent() {
+async function loadContent() {
+  try {
+    const res = await fetch('/.netlify/functions/content');
+    if (res.ok) {
+      const saved = await res.json();
+      if (saved && typeof saved === 'object') {
+        const merged = deepMerge(defaultContent, saved);
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(merged)); } catch(e) {}
+        return merged;
+      }
+    }
+  } catch (e) {}
+
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (saved && typeof saved === 'object') {
@@ -97,8 +91,15 @@ function loadContent() {
   return JSON.parse(JSON.stringify(defaultContent));
 }
 
-function saveContent(content) {
+async function saveContent(content) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(content));
+  try {
+    await fetch('/.netlify/functions/content', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: 'bladeadmin2025', content })
+    });
+  } catch (e) {}
 }
 
 function resetContent() {
