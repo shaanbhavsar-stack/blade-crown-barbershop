@@ -1,5 +1,5 @@
-(function () {
-  const content = loadContent();
+(async function () {
+  const content = await loadContent();
 
   // ---------- HERO ----------
   document.getElementById('hero-img').src = content.hero.image;
