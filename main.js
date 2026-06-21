@@ -33,12 +33,12 @@
       <a href="${igUrl}" target="_blank" rel="noopener" class="block overflow-hidden aspect-square" style="border-radius:0">
         <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="border-radius:0" />
       </a>
-      <div class="p-5 flex flex-col flex-1">
-        <h3 class="font-display text-2xl tracking-wide text-ink">${b.name}</h3>
-        <p class="text-ink/40 text-xs uppercase tracking-widest mt-1">${b.specialty}</p>
-        <p class="text-xs text-ink/30 mt-0.5">${b.years}</p>
-        <p class="text-sm text-ink/60 mt-3 leading-relaxed flex-1">${b.bio}</p>
-        ${bookUrl ? `<a href="${bookUrl}" target="_blank" rel="noopener" class="mt-5 block text-center bg-ink text-white text-xs uppercase tracking-widest py-2.5 hover:bg-ink/80 transition-colors duration-300">Book Now</a>` : ''}
+      <div class="p-4 sm:p-5 flex flex-col flex-1">
+        <h3 class="font-display text-xl sm:text-2xl tracking-wide text-ink">${b.name}</h3>
+        <p class="text-ink/40 text-[10px] sm:text-xs uppercase tracking-wider mt-1 leading-snug">${b.specialty}</p>
+        <p class="text-[10px] sm:text-xs text-ink/30 mt-0.5">${b.years}</p>
+        <p class="text-xs sm:text-sm text-ink/60 mt-2 sm:mt-3 leading-relaxed flex-1">${b.bio}</p>
+        ${bookUrl ? `<a href="${bookUrl}" target="_blank" rel="noopener" class="mt-4 sm:mt-5 block text-center bg-ink text-white text-[10px] sm:text-xs uppercase tracking-widest py-2.5 hover:bg-ink/80 transition-colors duration-300">Book Now</a>` : ''}
       </div>
     `;
     barbersGrid.appendChild(card);
@@ -48,7 +48,7 @@
   const galleryGrid = document.getElementById('gallery-grid');
   content.gallery.forEach((url, i) => {
     const fig = document.createElement('div');
-    fig.className = `reveal overflow-hidden group ${i === 0 ? 'col-span-2 row-span-2' : ''}`;
+    fig.className = 'reveal overflow-hidden group';
     fig.style.setProperty('--d', `${(i % 4) * 90}ms`);
     fig.innerHTML = `<img src="${url}" alt="Xolarc Barber Co. gallery photo" class="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110" />`;
     galleryGrid.appendChild(fig);
@@ -58,7 +58,7 @@
   const testimonialsGrid = document.getElementById('testimonials-grid');
   content.testimonials.forEach((t, i) => {
     const card = document.createElement('div');
-    card.className = 'reveal bg-stone-light border border-stone-dark card-hover p-8 flex flex-col';
+    card.className = 'reveal bg-stone-light border border-stone-dark card-hover p-5 sm:p-7 flex flex-col';
     card.style.setProperty('--d', `${i * 90}ms`);
     const stars = Array.from({ length: 5 }, (_, idx) => `<span class="star">${idx < t.rating ? '★' : '☆'}</span>`).join('');
     card.innerHTML = `
