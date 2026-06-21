@@ -42,22 +42,35 @@
   content.barbers.forEach((b, i) => {
     const card = document.createElement('div');
     const igLinks = {
-      'Carlo Reyna': 'https://www.instagram.com/xolarc/',
-      'Junior Leos': 'https://www.instagram.com/_jrfadezz/',
-      'Tony': 'https://www.instagram.com/tony.blendz/',
+      'Carlo Reyna':    'https://www.instagram.com/xolarc/',
+      'Junior Leos':    'https://www.instagram.com/_jrfadezz/',
+      'Tony':           'https://www.instagram.com/tony.blendz/',
       'Issiah Gandara': 'https://www.instagram.com/bigblendzg0/',
-      'LV': 'https://www.instagram.com/lvdabarber/',
-      'Ricky Villanueva': 'https://www.instagram.com/ricky.11/',
+      'LV':             'https://www.instagram.com/lvdabarber/',
+      'Ricky Villanueva':'https://www.instagram.com/ricky.11/',
+    };
+    const bookingLinks = {
+      'Carlo Reyna':    'https://booksy.com/en-us/548381_xolarc_barber-shop_36501_addison#ba_s=seo',
+      'Junior Leos':    'https://booksy.com/en-us/624936_jrfades_barber-shop_36501_addison',
+      'Tony':           'https://booksy.com/en-us/instant-experiences/widget/1384582',
+      'LV':             'https://lvdabarber.square.site/',
+      'Ricky Villanueva':'https://booksy.com/en-us/1609063_rvcutzz_barber-shop_36501_addison',
     };
     const igUrl = igLinks[b.name] || '#';
-    card.className = 'reveal flex flex-col items-center text-center w-36';
+    const bookUrl = bookingLinks[b.name];
+    card.className = 'reveal bg-charcoal-light border border-white/8 overflow-hidden flex flex-col';
     card.style.setProperty('--d', `${i * 80}ms`);
     card.innerHTML = `
-      <a href="${igUrl}" target="_blank" rel="noopener" class="w-28 h-28 rounded-full overflow-hidden border-2 border-white/10 mb-4 block hover:border-gold transition-colors duration-300">
-        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover" />
+      <a href="${igUrl}" target="_blank" rel="noopener" class="block overflow-hidden aspect-square">
+        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
       </a>
-      <h3 class="font-display text-xl tracking-wide text-white leading-tight">${b.name}</h3>
-      <p class="text-gold text-xs mt-1">${b.specialty}</p>
+      <div class="p-5 flex flex-col flex-1">
+        <h3 class="font-display text-2xl tracking-wide text-white">${b.name}</h3>
+        <p class="text-gold text-xs uppercase tracking-widest mt-1">${b.specialty}</p>
+        <p class="text-xs text-gray-500 mt-0.5">${b.years}</p>
+        <p class="text-sm text-gray-400 mt-3 leading-relaxed flex-1">${b.bio}</p>
+        ${bookUrl ? `<a href="${bookUrl}" target="_blank" rel="noopener" class="mt-5 block text-center border border-gold text-gold text-xs uppercase tracking-widest py-2.5 hover:bg-gold hover:text-charcoal-deep transition-colors duration-300">Book Now</a>` : ''}
+      </div>
     `;
     barbersGrid.appendChild(card);
   });
