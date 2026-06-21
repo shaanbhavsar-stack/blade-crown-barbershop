@@ -41,18 +41,14 @@
   const barbersGrid = document.getElementById('barbers-grid');
   content.barbers.forEach((b, i) => {
     const card = document.createElement('div');
-    card.className = 'reveal bg-charcoal-deep border border-white/10 card-hover overflow-hidden group';
-    card.style.setProperty('--d', `${i * 100}ms`);
+    card.className = 'reveal flex flex-col items-center text-center w-36';
+    card.style.setProperty('--d', `${i * 80}ms`);
     card.innerHTML = `
-      <div class="overflow-hidden h-72">
-        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-white/10 mb-4">
+        <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover" />
       </div>
-      <div class="p-6">
-        <h3 class="font-display text-2xl tracking-wide text-white">${b.name}</h3>
-        <p class="text-gold text-sm mt-1">${b.specialty}</p>
-        <p class="text-xs uppercase tracking-widest text-gray-500 mt-2">${b.years}</p>
-        <p class="text-sm text-gray-400 mt-4 leading-relaxed">${b.bio}</p>
-      </div>
+      <h3 class="font-display text-xl tracking-wide text-white leading-tight">${b.name}</h3>
+      <p class="text-gold text-xs mt-1">${b.specialty}</p>
     `;
     barbersGrid.appendChild(card);
   });
