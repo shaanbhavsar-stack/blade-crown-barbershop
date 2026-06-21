@@ -13,30 +13,6 @@
   document.getElementById('about-founded').textContent = content.about.founded;
   document.getElementById('about-img').src = content.about.image;
 
-  // ---------- SERVICES ----------
-  const servicesGrid = document.getElementById('services-grid');
-  content.services.forEach((group, gi) => {
-    const col = document.createElement('div');
-    col.className = 'reveal bg-charcoal border border-white/10 card-hover p-8';
-    col.style.setProperty('--d', `${gi * 120}ms`);
-    col.innerHTML = `
-      <h3 class="font-display text-2xl tracking-widest text-gold mb-6">${group.category.toUpperCase()}</h3>
-      <ul class="space-y-5">
-        ${group.items.map(item => `
-          <li class="flex items-start justify-between gap-4 pb-5 border-b border-white/5 last:border-0 last:pb-0">
-            <div>
-              <p class="font-medium text-white">${item.name}</p>
-              <p class="text-sm text-gray-400 mt-1 leading-relaxed">${item.desc}</p>
-            </div>
-            <span class="font-display text-xl text-gold whitespace-nowrap">${item.price}</span>
-          </li>
-        `).join('')}
-      </ul>
-    `;
-    servicesGrid.appendChild(col);
-  });
-  document.querySelector('#services h2').textContent = 'SERVICES & PRICING';
-
   // ---------- BARBERS ----------
   const barbersGrid = document.getElementById('barbers-grid');
   content.barbers.forEach((b, i) => {
