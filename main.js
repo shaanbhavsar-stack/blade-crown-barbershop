@@ -79,8 +79,6 @@
   // ---------- CONTACT ----------
   document.getElementById('contact-address').textContent = content.contact.address;
   document.getElementById('contact-neighborhood').textContent = `${content.contact.neighborhood} · Dallas, TX`;
-  document.getElementById('contact-phone').textContent = content.contact.phone;
-  document.getElementById('contact-email').textContent = content.contact.email;
   const hoursEl = document.getElementById('contact-hours');
   content.contact.hours.forEach(h => {
     const row = document.createElement('p');
