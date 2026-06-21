@@ -41,12 +41,21 @@
   const barbersGrid = document.getElementById('barbers-grid');
   content.barbers.forEach((b, i) => {
     const card = document.createElement('div');
+    const igLinks = {
+      'Carlo Reyna': 'https://www.instagram.com/xolarc/',
+      'Junior Leos': 'https://www.instagram.com/_jrfadezz/',
+      'Tony': 'https://www.instagram.com/tony.blendz/',
+      'Issiah Gandara': 'https://www.instagram.com/bigblendzg0/',
+      'LV': 'https://www.instagram.com/lvdabarber/',
+      'Ricky Villanueva': 'https://www.instagram.com/ricky.11/',
+    };
+    const igUrl = igLinks[b.name] || '#';
     card.className = 'reveal flex flex-col items-center text-center w-36';
     card.style.setProperty('--d', `${i * 80}ms`);
     card.innerHTML = `
-      <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-white/10 mb-4">
+      <a href="${igUrl}" target="_blank" rel="noopener" class="w-28 h-28 rounded-full overflow-hidden border-2 border-white/10 mb-4 block hover:border-gold transition-colors duration-300">
         <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover" />
-      </div>
+      </a>
       <h3 class="font-display text-xl tracking-wide text-white leading-tight">${b.name}</h3>
       <p class="text-gold text-xs mt-1">${b.specialty}</p>
     `;
