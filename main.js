@@ -22,6 +22,7 @@
       'Carlo Reyna':    'https://booksy.com/en-us/548381_xolarc_barber-shop_36501_addison#ba_s=seo',
       'Junior Leos':    'https://booksy.com/en-us/624936_jrfades_barber-shop_36501_addison',
       'Tony':           'https://booksy.com/en-us/instant-experiences/widget/1384582',
+      'Issiah Gandara': 'https://www.instagram.com/bigblendzg0/',
       'LV':             'https://lvdabarber.square.site/',
       'Ricky Villanueva':'https://booksy.com/en-us/1609063_rvcutzz_barber-shop_36501_addison',
     };
