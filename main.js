@@ -28,6 +28,7 @@
       'Carlo Reyna':    '$90',
       'Junior Leos':    '$50',
       'Tony':           '$40',
+      'Issiah Gandara': '$40',
       'LV':             '$35',
       'Ricky Villanueva': '$35',
     };
