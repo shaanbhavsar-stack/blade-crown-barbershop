@@ -2,9 +2,7 @@
   const content = await loadContent();
 
   // ---------- HERO ----------
-  document.getElementById('hero-img').src = content.hero.image;
   document.getElementById('hero-tagline').textContent = content.hero.tagline;
-  document.getElementById('hero-subtext').textContent = content.hero.subtext;
 
   // ---------- BARBERS ----------
   const barbersGrid = document.getElementById('barbers-grid');
