@@ -27,6 +27,8 @@
     const prices = {
       'Carlo Reyna':    '$90',
       'Junior Leos':    '$50',
+      'Tony':           '$40',
+      'LV':             '$35',
       'Ricky Villanueva': '$35',
     };
     const igUrl = igLinks[b.name] || '#';
