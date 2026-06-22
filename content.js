@@ -6,7 +6,7 @@ const STORAGE_KEY = 'xolarcBarberContent';
 const defaultContent = {
   hero: {
     tagline: 'Cuts That Hit Different.',
-    subtext: 'Addison, TX — Premium fades, modern cuts, and confidence-building transformations from Carlo Reyna. 6000+ cuts and counting.',
+    subtext: 'Addison, TX — Premium fades, modern cuts, and confidence-building transformations.',
     image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop'
   },
   about: {
