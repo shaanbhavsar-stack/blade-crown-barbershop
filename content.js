@@ -7,7 +7,7 @@ const defaultContent = {
   hero: {
     tagline: 'Cuts That Hit Different.',
     subtext: 'Addison, TX — Premium fades, modern cuts, and confidence-building transformations.',
-    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop'
   },
   about: {
     founded: '2019',
