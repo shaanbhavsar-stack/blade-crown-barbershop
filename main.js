@@ -24,8 +24,14 @@
       'LV':             'https://lvdabarber.square.site/',
       'Ricky Villanueva':'https://booksy.com/en-us/1609063_rvcutzz_barber-shop_36501_addison',
     };
+    const prices = {
+      'Carlo Reyna':    '$90',
+      'Junior Leos':    '$50',
+      'Ricky Villanueva': '$35',
+    };
     const igUrl = igLinks[b.name] || '#';
     const bookUrl = bookingLinks[b.name];
+    const price = prices[b.name];
     card.className = 'reveal bg-white border border-stone-dark overflow-hidden flex flex-col card-hover';
     card.style.setProperty('--d', `${i * 80}ms`);
     card.innerHTML = `
@@ -33,7 +39,10 @@
         <img src="${b.image}" alt="${b.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" style="border-radius:0" />
       </a>
       <div class="p-4 sm:p-5 flex flex-col flex-1">
-        <h3 class="font-display text-xl sm:text-2xl tracking-wide text-ink">${b.name}</h3>
+        <div class="flex items-baseline justify-between gap-2">
+          <h3 class="font-display text-xl sm:text-2xl tracking-wide text-ink">${b.name}</h3>
+          ${price ? `<span class="font-bold text-sm text-ink shrink-0">${price}</span>` : ''}
+        </div>
         <p class="text-ink/40 text-[10px] sm:text-xs uppercase tracking-wider mt-1 leading-snug">${b.specialty}</p>
         <p class="text-[10px] sm:text-xs text-ink/30 mt-0.5">${b.years}</p>
         <p class="text-xs sm:text-sm text-ink/60 mt-2 sm:mt-3 leading-relaxed flex-1">${b.bio}</p>
