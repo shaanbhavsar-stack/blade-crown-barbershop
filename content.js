@@ -54,17 +54,17 @@ const defaultContent = {
     { name: 'Evan', rating: 5, text: "Best barber in Texas, gives you advice and tips and even tips to take care of hair long term. Good vibes and cares about his client. Best haircut I've gotten." }
   ],
   contact: {
-    address: '3939 Belt Line Rd, First Door on the Left, Addison, TX 75001',
+    address: '3939 Belt Line Rd, 6th Floor, Addison, TX 75001',
     neighborhood: 'Addison',
     booksyUrl: 'https://booksy.com/en-us/548381_xolarc_barber-shop_36501_addison#ba_s=seo',
     hours: [
-      { day: 'Sunday', time: 'Closed' },
-      { day: 'Monday', time: 'Closed' },
-      { day: 'Tuesday', time: '10:00 AM – 1:00 PM' },
-      { day: 'Wednesday', time: '10:00 AM – 1:00 PM' },
-      { day: 'Thursday', time: '11:00 AM – 3:00 PM, 4:00 PM – 8:00 PM' },
-      { day: 'Friday', time: '11:00 AM – 3:00 PM, 4:00 PM – 8:00 PM' },
-      { day: 'Saturday', time: '9:00 AM – 1:00 PM, 2:00 PM – 6:00 PM' }
+      { day: 'Monday',    time: '10:00 AM – 6:00 PM' },
+      { day: 'Tuesday',   time: '10:00 AM – 6:00 PM' },
+      { day: 'Wednesday', time: '10:00 AM – 6:00 PM' },
+      { day: 'Thursday',  time: '10:00 AM – 6:00 PM' },
+      { day: 'Friday',    time: '10:00 AM – 6:00 PM' },
+      { day: 'Saturday',  time: '9:00 AM – 4:00 PM' },
+      { day: 'Sunday',    time: 'Closed' }
     ]
   }
 };

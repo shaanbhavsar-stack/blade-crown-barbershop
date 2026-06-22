@@ -69,7 +69,7 @@
   });
 
   // ---------- CONTACT ----------
-  document.getElementById('contact-address').textContent = content.contact.address;
+  document.getElementById('contact-address').innerHTML = content.contact.address.replace('6th Floor', '<span class="bg-ink text-white px-1.5 py-0.5 text-sm font-medium">6th Floor</span>');
   document.getElementById('contact-neighborhood').textContent = `${content.contact.neighborhood} · Dallas, TX`;
   const hoursEl = document.getElementById('contact-hours');
   content.contact.hours.forEach(h => {
